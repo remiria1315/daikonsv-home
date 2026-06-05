@@ -6,7 +6,57 @@ body {
 * {
   box-sizing: border-box;
 }
+main{
+  padding-left: 8px;
+  padding-bottom: 16px
+}
+ul.rules ul {
+  list-style: none;
+}
 
+li.cat {
+  counter-increment: cat-counter;
+  list-style: none;
+}
+
+li.cat h3::before {
+  content: counter(cat-counter, upper-roman) " - ";
+}
+
+ul.rules ul {
+  counter-reset: rule-counter;
+  list-style: none;
+  padding-left: 2.5em;
+}
+
+ul.rules ul li {
+  position: relative;
+}
+
+ul.rules ul li::before {
+  counter-increment: rule-counter;
+  content: counter(rule-counter, lower-roman) "";
+  position: absolute;
+  left: -1.5em;
+  top: 0.5lh
+}
+li.type_warn,
+li.type_ban {
+  border-left-width: 6px;
+  border-left-style: solid;
+  border-radius: 6px 0 0 6px;
+  width: 100%;
+}
+
+li.type_warn {
+  border-left-color: #f5c5422f;
+  background-color: rgba(245, 197, 66, 0.08);
+}
+
+li.type_ban {
+  border-left-color: #e74c3c2f;
+  background-color: rgba(231, 76, 60, 0.08);
+}
 #nav-links img {
   height: 5.5vh;
   min-height: 25px;

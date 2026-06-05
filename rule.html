@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>だいこんさーばー</title>
+    <link rel="icon" href="icon.png" type="image/png" />
+    <meta property="og:title" content="大根サーバー" />
+    <meta property="og:description" content="大根サーバーの公式サイトです。" />
+    <meta property="og:url" content="https://www.daikonsv.f5.si/" />
+    <!-- <meta property="og:image" content="https://www.daikonsv.f5.si/daikon.png"> -->
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <button id="hamburger">&#9776;</button>
+      <nav id="nav-links">
+        <a href="/"><img src="/icon.png" /></a>
+        <a href="/">Home</a>
+        <a href="/play">Play</a>
+        <a href="/rule">Rule</a>
+        <a href="/news">News</a>
+        <a href="/faq">FAQ</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <h1>サーバーのルール</h1>
+      <h2>規約</h2>
+      <ul class="rules"></ul>
+      <script>
+        const rules = [
+          {
+            cat: "基本",
+            items: [
+              {
+                k: "アカウント・クライアントなど",
+                v: "複数アカウントの使用は認められていません。チートは<b>絶対に</b>使用しないでください。",
+                t: "ban",
+              },
+              { k: "荒らし行為", v: "荒らしはやめてください。", t: "warn" },
+              {
+                k: "XRay",
+                v: "XRayは<b>絶対に</b>使用しないでください。",
+                t: "ban",
+              },
+            ],
+          },
+          {
+            cat: "PVP",
+            items: [
+              { k: "合意なしの一方的なpvp", v: "禁止です。", t: "warn" },
+              {
+                k: "リスキル",
+                v: "リスキルは<b>絶対に</b>やめてください。",
+                t: "ban",
+              },
+              { k: "逃げ", v: "過度なランナーはやめてください。", t: "warn" },
+            ],
+          },
+          {
+            cat: "コミュニティ",
+            items: [
+              {
+                k: "言動",
+                v: "差別・ヘイト発言はご遠慮ください。",
+                t: "warn",
+              },
+              {
+                k: "迷惑行為",
+                v: "他プレイヤーに許可をとっていない迷惑行為はやめてください。",
+                t: "warn",
+              },
+            ],
+          },
+          {
+            cat: "ワールド",
+            items: [
+              {
+                k: "他人の建築物",
+                v: "無断破壊・無断改変は禁止です。",
+                t: "warn",
+              },
+            ],
+          },
+        ];
+        const ul = document.querySelector(".rules");
+
+        for (const cat of rules) {
+          const catLi = document.createElement("li");
+          catLi.className = "cat";
+          catLi.innerHTML = `<h3>${cat.cat}</h3>`;
+
+          const innerUl = document.createElement("ul");
+          for (const item of cat.items) {
+            const li = document.createElement("li");
+            li.className = `rule ${"type_"+item.t ?? ""}`.trim();
+            li.innerHTML = `
+    <span class="k">${item.k}</span><br />
+    <span class="v">${item.v}</span>
+  `;
+            innerUl.appendChild(li);
+          }
+          catLi.appendChild(innerUl);
+          ul.appendChild(catLi);
+        }
+      </script>
+    </main>
+    <noscript>
+      なんらかのscriptが無効化されているため、不具合が出る場合があります。
+    </noscript>
+  </body>
+</html>
