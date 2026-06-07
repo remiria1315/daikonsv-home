@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'gokuboso';
-  src: url('/assets/gokuboso.woff2');
+  font-family: "gokuboso";
+  src: url("/assets/gokuboso.woff2");
   font-display: swap;
 }
 :root {
@@ -11,8 +11,131 @@
   --c-text: #111111;
   --c-muted: #383838;
   --c-num: #000000;
-  --font-mono: "gokuboso", "Space Mono", monospace;
+  --font-mono: "gokuboso";
   --font-body: sans-serif;
+}
+.info {
+  font: var(--font-mono)
+}
+.faq-hero {
+  padding: 3rem 1.5rem 2rem;
+  text-align: center;
+}
+
+.faq-hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.faq-hero p {
+  color: #888;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.faq-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.faq-section {
+  margin-bottom: 2.5rem;
+}
+
+.faq-section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  font: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1rem 0;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: inherit;
+}
+
+.faq-question:hover {
+  opacity: 0.7;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #aaa;
+  transition: transform 0.2s ease;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 0 1rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+.faq-answer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.faq-contact {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: #0001;
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+.faq-contact p {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.faq-contact a {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background: #111;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.faq-contact a:hover {
+  opacity: 0.8;
 }
 body {
   height: 100vh;
