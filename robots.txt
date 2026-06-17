@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /template.html
+Disallow: /assets/
+ 
+Sitemap: https://www.daikonsv.f5.si/sitemap.xml
+ 

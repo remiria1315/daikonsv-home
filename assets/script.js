@@ -35,10 +35,40 @@ document.addEventListener("DOMContentLoaded", () => {
         ? items
             .map(
               (item) => `
-          <article class="news-card">
-            <time>${fmt(item.date)}</time>
-            <h2>${esc(item.name)}</h2>
-            <p>${esc(item.content)}</p>
+          <article class="news">
+            <div class="embed-wrapper">
+              <article class="embed" aria-hidden="false">
+                <div class="embed-grid">
+                  <div class="embed-title embed-margin">
+                    ${item.name}
+                  </div>
+
+                  <div class="embed-description embed-margin">
+                    ${item.content}
+                  </div>
+                  <div class="embed-footer embed-margin">
+                    <img
+                      alt="送信者のアイコン"
+                      class="embed-footer-icon"
+                      src="${item.icon || "https://cdn.discordapp.com/embed/avatars/5.png" /* discordのデフォルトアイコン */}"
+                    >
+                    <span class="embed-footer-text">
+                      ${item.author}
+                      <span class="embed-footer-sep">•</span>
+                      ${new Date(item.date * 1000)
+                        .toLocaleString("ja-JP", {
+                          year: "numeric",
+                          month: "2-digit",
+                          day: "2-digit",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })
+                        .replace(/\//g, "/")}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            </div>
           </article>`,
             )
             .join("")

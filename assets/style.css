@@ -13,56 +13,92 @@
   --c-num: #000000;
   --font-mono: "gokuboso";
   --font-body: sans-serif;
-}
-#news {
-  padding: 1rem;
-  color: #000;
-  font: var("gokuboso");
-}
-
-#news h1 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
+  --color-text-primary: hsl(240 6.1% 19.2%);
+  --color-text-dark: hsl(240 5.9% 16.7%);
+  --color-bg-embed: hsl(0 0% 100%);
+  --color-border-embed: hsl(240 4% 60.8% / 0.28);
+  --color-border-accent: hsl(214 20.5% 15.3%);
 }
 
-#rss-link {
-  font-size: 0.8rem;
-  margin-left: 0.5rem;
-}
-
-.news-card {
-  background-color: rgb(243, 255, 243);
-  min-width: 512px;
-  min-height: 128px;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-}
-
-.news-card time {
-  font-size: 0.8rem;
-  color: #888;
-  display: block;
-  font: var(--font-body);
-  margin-bottom: 0.25rem;
-}
-
-.news-card h2 {
-  font-size: 2rem;
-  margin: 0 0 0.5rem;
-  font: var(--font-body);
-}
-
-.news-card p {
-  font-size: 0.9rem;
-  background-color: rgba(220, 255, 163, 0.667);
+.embed-wrapper {
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 0.25rem;
+  padding-block: 0.125rem;
   
-  padding: 12px;
-  border-radius: 8px;
-  margin: 0;
 }
+
+.embed {
+  background: var(--color-bg-embed);
+  border: 1px solid var(--color-border-embed);
+  border-inline-start: 4px solid var(--color-border-accent);
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: grid;
+  /* max-width: max-content; */
+  width: 50vw;
+}
+
+.embed-grid {
+  display: grid;
+  max-width: 516px;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  overflow: hidden;
+  padding: 0.125rem 1rem 1rem 0.75rem;
+}
+
+.embed-margin {
+  margin-top: 8px;
+}
+
+.embed-title {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  grid-column: 1 / 1;
+}
+
+.embed-description {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  white-space: pre-line;
+  color: var(--color-text-primary);
+  grid-column: 1 / 1;
+}
+
+.embed-footer {
+  display: flex;
+  align-items: center;
+  grid-area: auto / 1 / auto / 1;
+}
+
+.embed-footer-icon {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  margin-inline-end: 8px;
+}
+
+.embed-footer-text {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1rem;
+  color: var(--color-text-primary);
+}
+
+.embed-footer-sep {
+  display: inline-block;
+  font-weight: 500;
+  margin: 0 4px;
+  color: var(--color-text-primary);
+}
+
 .info {
-  font: var(--font-mono)
+  font: var(--font-mono);
 }
 .faq-hero {
   padding: 3rem 1.5rem 2rem;
@@ -657,4 +693,92 @@ header {
   #nav-links.open {
     transform: translateX(0);
   }
+}
+
+/* liquid */
+
+/* Liquid glass effect class */
+.glass {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(2px) saturate(180%);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.8);
+  border-radius: 2rem;
+  padding: 1.25rem;
+  box-shadow:
+    0 8px 32px rgba(31, 38, 135, 0.2),
+    inset 0 4px 20px rgba(255, 255, 255, 0.3);
+}
+
+.glass::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  backdrop-filter: blur(1px);
+  box-shadow:
+    inset -10px -8px 0px -11px rgba(255, 255, 255, 1),
+    inset 0px -9px 0px -8px rgba(255, 255, 255, 1);
+  opacity: 0.6;
+  z-index: -1;
+  filter: blur(1px) drop-shadow(10px 4px 6px black) brightness(115%);
+  pointer-events: none;
+}
+
+.icon {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.icon::after {
+  border-radius: 0.625rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+.card-subtitle {
+  font-size: 1.1rem;
+  color: white;
+  margin: 0.3125rem 0 0 0;
+}
+
+.card-content {
+  color: white;
+  line-height: 1.6;
+}
+
+.btn-glass {
+  position: relative;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.9375rem;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-glass::after {
+  border-radius: 0.75rem;
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
 }
