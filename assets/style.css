@@ -11,7 +11,8 @@
   --c-text: #111111;
   --c-muted: #383838;
   --c-num: #000000;
-  --font-mono: "gokuboso";
+  --font-mono: "'Noto Sans'";
+  --font-title: "gokuboso";
   --font-body: sans-serif;
   --color-text-primary: hsl(240 6.1% 19.2%);
   --color-text-dark: hsl(240 5.9% 16.7%);
@@ -447,7 +448,7 @@ header {
   letter-spacing: 0.1em;
 }
 .play-sec-title {
-  font-family: var(--font-mono);
+  font-family: var(--font-title);
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -484,7 +485,7 @@ header {
   color: #ccc;
 }
 .play-step-title {
-  font-family: var(--font-mono);
+  font-family: var(--font-title);
   font-size: 1rem;
   font-weight: 700;
   color: var(--c-text);

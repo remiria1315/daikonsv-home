@@ -2,3 +2,4 @@
 .trunk
 .vscode/*
 .vscode
+generatesubsets.js
