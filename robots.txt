@@ -3,5 +3,5 @@ Allow: /
 Disallow: /template.html
 Disallow: /assets/
  
-Sitemap: https://www.daikonsv.f5.si/sitemap.xml
+Sitemap: https://www.daikonsv.mczero.net/sitemap.xml
  
