@@ -93,7 +93,11 @@
   margin: 0;
   color: #666;
 }
-
+@media (max-width: 768px) {
+  .info__item {
+    display: none;
+  }
+}
 .embed-grid {
   display: grid;
   max-width: 516px;
